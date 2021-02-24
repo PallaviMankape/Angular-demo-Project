@@ -1,0 +1,105 @@
+<!--  
+  <div class="modal" style="overflow-x: auto;" id="exampleModal" tabindex="-1" data-backdrop="false" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+          <button type="button" (click)="dismissModal()" class="close" data-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+            <form id="Login" [formGroup]="productForm">
+                <div class="form-group">
+                    <input class="form-control" formControlName="productId" placeholder="Enter product Id"/>
+                    <span *ngIf="productForm.controls['productId'].hasError('required') && productForm.controls['productId'].touched"
+                       class="text-danger support-text">productId is required.</span>
+                  </div>
+                <div class="form-group">
+                    <input class="form-control" formControlName="productName" placeholder="Enter Product Name"/>
+                    <span *ngIf="productForm.controls['productName'].hasError('required') && productForm.controls['productName'].touched"
+                       class="text-danger support-text">Name is required.</span>
+                  </div>
+
+                <div class="form-group">
+                <input type="email" class="form-control" formControlName="price" id="inputEmail" placeholder="Enter Price"/>
+                <span *ngIf="productForm.controls['price'].hasError('required') && productForm.controls['price'].touched"
+                       class="text-danger support-text">Price is required.</span>
+              </div>
+
+              <div class="form-group">
+                <input type="email" class="form-control" formControlName="url" id="inputEmail" placeholder="Chooes Image"/>
+                <span *ngIf="productForm.controls['url'].hasError('required') && productForm.controls['url'].touched"
+                       class="text-danger support-text">url is required.</span>
+              </div>
+      
+              <div class="form-group">
+                <label for="category">Select Category :</label>
+                <select class="form-control" id="category" formControlName="category" >
+                    <option value="male">Electronics</option>
+                    <option value="female">Cloths</option>
+                    <option value="female">Beauty </option>
+                </select>
+                <span *ngIf="productForm.controls['category'].hasError('required') && productForm.controls['category'].touched"
+                       class="text-danger support-text">Category is required.</span>
+              </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button"  (click)="dismissModal()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" (click)="addProduct(); onSubmit()" class="btn btn-primary">Add Product</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <h1 mat-dialog-title>Add Product</h1>
+<div mat-dialog-content>
+  <form [formGroup]="productForm">
+    <div >
+    <mat-form-field>
+      <mat-label>Product Id</mat-label>
+      <input matInput formControlName="productId" placeholder="Enter Product Id">
+    </mat-form-field>
+    <p *ngIf="productForm.controls[ 'productId'].hasError( 'required') && productForm.controls['productId'].touched"
+     class="text-danger support-text m-0 p-0" style="font-size: 10px;">Product Id is required.</p>
+    </div> 
+<div >
+  <mat-form-field>
+      <mat-label>Product Name</mat-label>
+      <input matInput formControlName="productName" placeholder="Enter Product Name">
+  </mat-form-field>
+  <p *ngIf="productForm.controls[ 'productName'].hasError( 'required') && productForm.controls['productName'].touched"
+  class="text-danger support-text m-0 p-0" style="font-size: 10px;">Product Name is required.</p>
+</div>
+<div >
+  <mat-form-field>
+    <mat-label>Product price</mat-label>
+    <input matInput formControlName="price" placeholder="Enter Product Price">
+  </mat-form-field>
+  <p *ngIf="productForm.controls[ 'price'].hasError( 'required') && productForm.controls['price'].touched"
+  class="text-danger support-text m-0 p-0" style="font-size: 10px;">Price is required.</p>
+</div>
+<div >
+<mat-form-field>
+  <mat-label>Product Image</mat-label>
+  <input matInput  formControlName="url" placeholder="Add Product Image">
+</mat-form-field>
+<p *ngIf="productForm.controls[ 'url'].hasError( 'required') && productForm.controls['url'].touched"
+class="text-danger support-text m-0 p-0" style="font-size: 10px;">Image is required.</p>
+</div>
+
+<div >
+  <mat-form-field>
+    <mat-label>Product Category</mat-label>
+    <input matInput  formControlName="category" placeholder="Enter Product category">
+  </mat-form-field>
+  <p *ngIf="productForm.controls[ 'category'].hasError( 'required') && productForm.controls['category'].touched"
+  class="text-danger support-text m-0 p-0" style="font-size: 10px;">category is required.</p>
+  </div>
+  </form>  
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button data-dismiss="modal" (click)="onNoClick()">Cancel</button>
+    <button mat-button data-dismiss="modal" (click)="addProduct()">Add Product</button>
+</div>
